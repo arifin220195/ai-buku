@@ -2,17 +2,14 @@ import streamlit as st
 import google.generativeai as genai
 import pandas as pd
 
-api_key = 'AIzaSyCYuuC0kFiIgl15OU65V_qVy4iYk91gbmE'
-ngrok_token = '33EbqSoPnuENhYDl6dk2vC8zcLl_4G2imMgyVS6iHZSzvXQka'
-
 # Konfigurasi API
 # TIPS: Nanti kita masukkan API Key di 'Secrets' Streamlit agar aman
 api_key = st.secrets["api_key"]
 genai.configure(api_key=api_key)
 
 # Membaca data lokal (yang nanti diupload ke GitHub)
-df = pd.read_CSV('buku.csv')
-df['Stok'] = 50 # Tambah stok otomatis
+df = pd.read_csv('buku.csv')
+df['Stok'] = df['Stok'] + 50 # Tambah stok otomatis
 stok_info = df[['Judul Buku', 'Harga Normal', 'Harga Diskon', 'Stok']].to_string(index=False)
 
 # Instruksi AI
