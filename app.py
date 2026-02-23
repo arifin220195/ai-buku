@@ -11,7 +11,7 @@ api_key = st.secrets["api_key"]
 genai.configure(api_key=api_key)
 
 # Membaca data lokal (yang nanti diupload ke GitHub)
-df = pd.read_excel('Diskon Bazar 2025.xlsx')
+df = pd.read_CSV('buku.csv')
 df['Stok'] = 50 # Tambah stok otomatis
 stok_info = df[['Judul Buku', 'Harga Normal', 'Harga Diskon', 'Stok']].to_string(index=False)
 
