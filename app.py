@@ -32,14 +32,14 @@ def load_buku_data():
         df = pd.read_csv('buku.csv')
         
         # Validasi kolom yang diperlukan
-        required_cols = ['Judul Buku', 'Harga Normal', 'Harga Diskon', 'Stok']
+        required_cols = ['Judul Buku', 'Harga Normal', 'Harga Diskon', 'Stock']
         missing_cols = [col for col in required_cols if col not in df.columns]
         if missing_cols:
             st.error(f"❌ Kolom yang hilang di CSV: {', '.join(missing_cols)}")
             st.stop()
         
         # Tambah stok otomatis
-        df['Stok'] = df['Stok'] + 50
+        df['Stock'] = df['Stock'] + 50
         return df
     except pd.errors.EmptyDataError:
         st.error("❌ File 'buku.csv' kosong.")
