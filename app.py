@@ -76,8 +76,8 @@ LARANGAN:
 - Jangan berikan info selain tentang buku"""
 
 try:
-    model = genai.GenerativeModel(
-        "models/gemini-1.5-flash",
+    model = models/genai.GenerativeModel(
+        "gemini-1.5-flash",
         system_instruction=instruction,
         generation_config=genai.types.GenerationConfig(
             temperature=0.7,
